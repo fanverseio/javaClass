@@ -3,42 +3,141 @@ import java.util.Scanner;
 public class Exercise17 {
     public static void main(String[] args) {
 
-        double sum = 0;
-
         Scanner scan = new Scanner(System.in);
-        System.out.println("Give us a number: ");
-        double n = scan.nextDouble();
+        System.out.println("What would you like to do?");
+        System.out.println(
+                "Press 1 to input your number.\nPress 2 to see how many terms to get 3.14.\nPress 3 to see how many terms to get 3.14159265358\nPress anything else to exit.");
 
+        int choice = scan.nextInt(); // store user's input in a variable
+
+        if (choice == 1) {
+            UserInput user = new UserInput();
+            user.userInput();
+        } else if (choice == 2) {
+
+            CheckPi1 check = new CheckPi1();
+            check.checkPi1();
+        } else if (choice == 3) {
+            CheckPi2 check = new CheckPi2();
+            check.checkPi2();
+        } else {
+            System.out.println("Exiting programme.");
+        }
+        scan.close();
+    }
+}
+
+class UserInput {
+    public void userInput() {
         int i = 1;
-        int j = 1
-        boolean stop = true;
+        double k = 3.0;
+        double sum = 0.0;
+        Scanner scan = new Scanner(System.in);
+        System.out.println();
+        System.out.println("Try your a number: ");
+        int n = scan.nextInt();
+        while (i <= n) {
 
-        while (!stop) {
-            System.out.println("Press 1 to continue, 0 to stop: ");
-            int enter = scan.nextInt();
+            if (i % 2 == 0) {
+                sum = sum + 4.0 / k;
+                k = k + 2;
+                i++;
 
-            double nextNum = 4 / i;
-            sum = 4 * (4 / i) + nextNum;
-            if (isEven(i) == true) {
+            } else if (i % 2 != 0) {
+
+                sum = sum - 4.0 / k;
+                k = k + 2;
+                i++;
 
             }
+        }
+        System.out.println("The total sum of running it in " + n + " times is: " + (4.0 + sum));
 
-            if (enter == 1) {
-                i = i + 2;
-            } else if (enter == 0) {
-                stop = true;
-                break;
+        scan.close();
+    }
+}
+
+class CheckPi1 {
+    public void checkPi1() {
+        int i = 1;
+        double k = 3.00;
+        double sum = 0.00;
+        while (i <= 1000000) {
+
+            if (i % 2 == 0) {
+                sum = sum + 4.00 / k;
+
+                double finalSum = 4.00 + sum;
+                String str = String.valueOf(finalSum);
+                if (str.substring(0, 4).equals("3.14")) {
+                    break;
+                } else {
+                    k = k + 2;
+                    i++;
+                }
+
+            } else if (i % 2 != 0) {
+
+                sum = sum - 4.00 / k;
+
+                double finalSum = 4.00 + sum;
+                String str = String.valueOf(finalSum);
+                if (str.substring(0, 4).equals("3.14")) {
+                    break;
+                } else {
+                    k = k + 2;
+                    i++;
+                }
+            }
+        }
+        System.out.println("We get 3.14 at " + (i) + " terms");
+
+    }
+
+}
+
+class CheckPi2 {
+    public void checkPi2() {
+        boolean found = true;
+        long i = 1;
+        double k = 3.0;
+        double sum = 0.0;
+        while (i <= 1000000000) {
+
+            if (i % 2 == 0) {
+                sum = sum + 4.0 / k;
+
+                double finalSum = 4.0 + sum;
+                String str = String.valueOf(finalSum);
+                if (str.substring(0, 6).equals("3.14159265358")) {
+                    break;
+                } else {
+                    k = k + 2;
+                    i++;
+                }
+
+            } else if (i % 2 != 0) {
+
+                sum = sum - 4.0 / k;
+
+                double finalSum = 4.0 + sum;
+                String str = String.valueOf(finalSum);
+                if (str.substring(0, 6).equals("3.14159265358")) {
+                    break;
+                } else {
+                    k = k + 2;
+                    i++;
+                }
+            } else {
+                found = false;
             }
         }
 
-    }
-
-    public static boolean isEven(int x) {
-        return x % 2 == 0;
-    }
-
-    public static boolean isOdd(int x) {
-        return x % 2 != 0;
+        if (found) {
+            System.out.println("We get 3.14159265358 at " + (i) + " terms");
+        } else {
+            System.out.println("Not being able to locate the exact terms within the range.");
+        }
     }
 
 }
