@@ -117,7 +117,7 @@ class CheckPi2 {
 
                 double finalSum = 4.0 + sum;
                 String str = String.valueOf(finalSum);
-                if (str.substring(0, 6).equals("3.14159265358")) {
+                if (str.length() >= 6 && str.substring(0, 6).equals("3.14159265358")) {
                     break;
                 } else {
                     k = k + 2;
@@ -130,7 +130,7 @@ class CheckPi2 {
 
                 double finalSum = 4.0 + sum;
                 String str = String.valueOf(finalSum);
-                if (str.substring(0, 6).equals("3.14159265358")) {
+                if (str.length() >= 6 && str.substring(0, 6).equals("3.14159265358")) {
                     break;
                 } else {
                     k = k + 2;
