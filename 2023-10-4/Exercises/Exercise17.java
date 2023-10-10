@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Exercise17 {
@@ -6,9 +7,9 @@ public class Exercise17 {
         Scanner scan = new Scanner(System.in);
         System.out.println("What would you like to do?");
         System.out.println(
-                "Press 1 to input your number.\nPress 2 to see how many terms to get 3.14.\nPress 3 to see how many terms to get 3.14159265358\nPress anything else to exit.");
+                "Press 1 to input your number.\nPress 2 to see how many terms to get 3.14.\nPress 3 to see how many terms to get 3.14159265358\nPress any other number to exit.");
 
-        int choice = scan.nextInt(); // store user's input in a variable
+        int choice = Integer.parseInt(scan.nextLine()); // store user's input in a variable
 
         if (choice == 1) {
             UserInput user = new UserInput();
@@ -21,7 +22,14 @@ public class Exercise17 {
             CheckPi2 check = new CheckPi2();
             check.checkPi2();
         } else {
-            System.out.println("Exiting programme.");
+            try {
+                if (choice != 1 || choice != 2 || choice != 3)
+                    ;
+            } catch (NumberFormatException e) {
+
+            }
+            System.out.println("Existing programme");
+            System.exit(0);
         }
         scan.close();
     }
