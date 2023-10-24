@@ -18,7 +18,7 @@ public class Exercise13 {
 
         for (int i = 0; i < noteSize; i++) {
             while (totalSum >= notes[i]) { // for as long as the total is bigger than the biggest denominator, we need
-                                           // to minutes the biggest denomiator. So if the given number is 120, we need
+                                           // to subtract the biggest denomiator. So if the given number is 120, we need
                                            // to minus 50 twice, and when it's smaller, we move i to the next number.
                                            // when i moves, we log the i number into noteCount which was an array of the
                                            // same length but values of '0';
