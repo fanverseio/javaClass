@@ -30,6 +30,8 @@ public class Exercise07 {
             System.out.println(" Lowest: " + num3 + " Middle: " + num2 + " Highest: " + num1);
         } else if (num2 < num3 && num3 < num1) {
             System.out.println(" Lowest: " + num2 + " Middle: " + num3 + " Highest: " + num1);
+        } else {
+            System.out.println("You have some invalid input, exiting programme.")
         }
 
     }

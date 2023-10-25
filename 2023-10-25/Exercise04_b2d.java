@@ -75,7 +75,7 @@ class Binary2Dec {
 }
 
 class DecToBinary {
-
+    // reverse an array 
     public static int[] reverseArrayInPlace(int[] arr) {
         for (int i = 0; i < arr.length / 2; i++) {
             int temp = arr[i];
@@ -108,9 +108,9 @@ class DecToBinary {
         for (int i = 0; i < arrLength; i++) {
             if (userInput >= revserBinaryArr[i]) {
                 userInput = userInput - revserBinaryArr[i];
-                outputBinaryArr[i] = 1;
+                outputBinaryArr[i] = 1; // if the remremainder of user input is bigger than the 2^i number, log the place as 1
             } else {
-                userInput = userInput - 0;
+                userInput = userInput - 0; // if the remainder of the user input is smaller than the 2^i, then log it as 0.
                 outputBinaryArr[i] = 0;
             }
         }
